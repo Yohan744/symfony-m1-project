@@ -20,7 +20,7 @@ class Theme
     private ?string $primaryColor = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $secondaryColor = null;
+    private ?string $secondaryColor = "#FFFFFF";
 
     public function getId(): ?int
     {
