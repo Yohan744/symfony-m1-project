@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use League\ColorExtractor\Color;
 use League\ColorExtractor\Palette;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class GameController extends AbstractController
