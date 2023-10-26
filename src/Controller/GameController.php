@@ -32,7 +32,7 @@ class GameController extends AbstractController
     public function getTheme(string $environement): Theme
     {
         $theme = new Theme();
-        $theme->setImage("images/" . $environement . ".jpg");
+        $theme->setImage("images/theme/" . $environement . ".jpg");
 
         $theme->setPrimaryColor($environement);
 
