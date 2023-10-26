@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Mon village
+{% endblock %}
+
+{% block body %}
+	<style>
+		body {
+			overflow: hidden;
+			margin: 0;
+			height: 100vh;
+			width: 100vw;
+		}
+		.layout-bg {
+			height: 100%;
+			width: 100%;
+
+			background-image: url({{ asset(theme.image) }});
+		}
+	</style>
+
+	<div class="layout-bg"></div>
+{% endblock %}
