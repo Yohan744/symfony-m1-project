@@ -4,7 +4,7 @@
 	Mon village
 {% endblock %}
 
-{% block body %}
+{% block style %}
 	<style>
 		body {
 			overflow: hidden;
@@ -19,6 +19,8 @@
 			background-image: url({{ asset(theme.image) }});
 		}
 	</style>
+{% endblock %}
 
+{% block body %}
 	<div class="layout-bg"></div>
 {% endblock %}
