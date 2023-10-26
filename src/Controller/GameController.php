@@ -12,15 +12,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use League\ColorExtractor\Color;
 use League\ColorExtractor\Palette;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(KernelInterface $appKernel): Response
+    public function index(KernelInterface $appKernel, Request $request): Response
     {
-        $input = "plain";
-        $theme = $this->getTheme($input, $appKernel);
+        $session = $request->getSession();
+        $environement = $session->get('environment');
+        $pseudo = $session->get('pseudo');
+
+        $theme = $this->getTheme($environement, $appKernel);
 
         return $this->render('game/index.html.twig', [
             'theme' => $theme,

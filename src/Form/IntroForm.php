@@ -25,8 +25,6 @@ class IntroForm extends AbstractType
                 ],
             ])
             ->add('Valider', SubmitType::class)
-            ->setMethod("POST")
-            ->setAction('save');
+            ->setMethod("POST");
     }
-
 }
