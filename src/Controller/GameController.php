@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Building;
 use App\Entity\Theme;
 use App\FormType\ThemeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,9 +22,15 @@ class GameController extends AbstractController
 
         $theme = $this->getTheme($environement);
 
+        $building = new Building();
+        $building->setName("Hotel de ville");
+        $building->setDescription("Ceci est le batiment principale de votre village. ");
+        $buildings = [$building, $building, $building];
+
         return $this->render('game/index.html.twig', [
             'theme' => $theme,
-            "pseudo" => $pseudo
+            "pseudo" => $pseudo,
+            "buildings" => $buildings
         ]);
     }
 

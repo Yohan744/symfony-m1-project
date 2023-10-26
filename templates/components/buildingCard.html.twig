@@ -1,0 +1,10 @@
+{% set currentTheme = app.session.get('environment') %}
+
+<div class="building-container bg-{{currentTheme}} ">
+	<h3>
+		{{building.name}}
+	</h3>
+	<p>
+		{{building.description}}
+	</p>
+</div>

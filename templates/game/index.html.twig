@@ -8,6 +8,17 @@
 
 	<div class="layout-bg">
 		<img src="{{ asset(theme.image) }}" alt="background">
-		<div class="sidebar {{theme.primaryColor}}"></div>
+		{{ component('sidebar', {
+			pBgColor: theme.primaryColor,
+			pPseudo: pseudo
+		}) }}
+
+		<div class="content">
+			{% for building in buildings %}
+				{{component('buildingCard', {
+					building: building
+				})}}
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}
