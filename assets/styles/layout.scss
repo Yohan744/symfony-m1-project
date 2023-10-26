@@ -1,0 +1,40 @@
+.layout-bg {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .sidebar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 1;
+
+    &.snow {
+        background: #384782;
+    }
+
+    &.plain {
+        background: #0E4428;
+    }
+
+    &.water {
+        background: #4DADA1;
+    }
+
+  }
+
+}
