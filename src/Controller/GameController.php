@@ -10,40 +10,31 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use League\ColorExtractor\Color;
-use League\ColorExtractor\Palette;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(KernelInterface $appKernel, Request $request): Response
+    public function index(Request $request): Response
     {
         $session = $request->getSession();
         $environement = $session->get('environment');
         $pseudo = $session->get('pseudo');
 
-        $theme = $this->getTheme($environement, $appKernel);
+        $theme = $this->getTheme($environement);
 
         return $this->render('game/index.html.twig', [
             'theme' => $theme,
+            "pseudo" => $pseudo
         ]);
     }
 
-    public function getTheme(string $themeInput, KernelInterface $appKernel): Theme
+    public function getTheme(string $environement): Theme
     {
         $theme = new Theme();
-        $theme->setImage("images/" . $themeInput . ".jpg");
+        $theme->setImage("images/" . $environement . ".jpg");
 
-        $palette = Palette::fromFilename($appKernel->getProjectDir() . "/assets/images/" . $themeInput . ".jpg");
-        $lightPalette = $palette->getMostUsedColors(1);
-
-        foreach ($lightPalette as $color) {
-            $theme->setPrimaryColor(Color::fromIntToHex($color));
-        }
-
-        $theme->setPrimaryColor(Color::fromIntToHex($color));
+        $theme->setPrimaryColor($environement);
 
         return $theme;
     }

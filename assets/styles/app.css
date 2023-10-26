@@ -11,3 +11,22 @@ body {
     height: 100%;
     width: 100%;
 }
+
+.layout-bg .sidebar{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+}
+
+.layout-bg .sidebar.snow{
+    background: #384782;
+}
+
+
+.layout-bg .sidebar.plain{
+    background: #0E4428;
+}
+
+.layout-bg .sidebar.water{
+    background: #4DADA1;
+}
