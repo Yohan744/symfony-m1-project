@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>intro</h1>
+
+    <form method="POST" action="/hello">
+        {{ form_start(form) }}
+
+        {{ form_row(form.pseudo) }}
+        {{ form_row(form.environment) }}
+
+        {{ form_end(form) }}
+    </form>
+
+{% endblock %}
