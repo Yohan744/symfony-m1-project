@@ -14,9 +14,8 @@ class TownHallFixture extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $manager->persist($this->createTownHall());
-        $manager->flush();
         $this->addReference(self::TOWNHALL_REFRENCE, $this->createTownHall());
+        $manager->flush();
     }
 
     public function createTownHall(): Building {
