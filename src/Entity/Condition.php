@@ -16,10 +16,12 @@ class Condition
     #[ORM\Column]
     private ?int $levelRequired = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    // HDV
+    #[ORM\ManyToOne (cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: false), ]
     private ?Building $building = null;
 
+    // Caserne
     #[ORM\ManyToOne(inversedBy: 'conditions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Building $linkedBuilding = null;
