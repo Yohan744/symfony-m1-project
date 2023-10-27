@@ -8,10 +8,7 @@
 
 	<div class="layout-bg">
 		<img src="{{ asset(theme.image) }}" alt="background">
-		{{ component('sidebar', {
-			pBgColor: theme.primaryColor,
-			pPseudo: pseudo
-		}) }}
+		{{include("components/sidebar.html.twig") }}
 
 		<div class="content">
 			{% for building in buildings %}

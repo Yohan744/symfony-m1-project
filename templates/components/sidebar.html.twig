@@ -1,6 +1,16 @@
 {% set currentTheme = app.session.get('environment') %}
+{% set pseudo = app.session.get('pseudo') %}
+
 <div class="sidebar bg-{{currentTheme}}">
 	<h1>
 		{{pseudo}}
 	</h1>
+	<hr>
+	{% if app.user %}
+		{% for building in app.user.buildings %}
+			<p>{{building.name}}</p>
+		{% else %}
+			<p>cant buuild</p>
+		{% endfor %}
+	{% endif %}
 </div>
