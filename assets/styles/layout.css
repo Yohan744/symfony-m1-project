@@ -2,6 +2,7 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
+  display: flex;
 }
 .layout-bg img {
   position: absolute;
@@ -9,28 +10,33 @@
   left: 0;
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: 0;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   -webkit-user-drag: none;
   user-focus: none;
 }
 .layout-bg .sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 100%;
   width: 20%;
   z-index: 1;
+  color: white;
+  padding: 20px 30px;
 }
 .layout-bg .sidebar.snow {
-  background: #384782;
+  background: #212b4f;
 }
 .layout-bg .sidebar.plain {
   background: #0E4428;
 }
 .layout-bg .sidebar.water {
-  background: #4DADA1;
+  background: #0A0919;
 }
-
-/*# sourceMappingURL=layout.css.map */
+.layout-bg .content {
+  flex: 1;
+  z-index: 1;
+  color: white;
+}/*# sourceMappingURL=layout.css.map */
