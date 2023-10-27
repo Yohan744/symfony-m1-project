@@ -24,7 +24,7 @@ class Building
     #[ORM\OneToMany(mappedBy: 'building', targetEntity: BuildingState::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $buildingStates;
 
-    #[ORM\OneToMany(mappedBy: 'linkedBuilding', targetEntity: Condition::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'linkedBuilding', targetEntity: Condition::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $conditions;
 
     #[ORM\Column]

@@ -2,6 +2,7 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
+  display: flex;
 
   img {
     position: absolute;
@@ -17,25 +18,34 @@
   }
 
   .sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 100%;
     width: 20%;
     z-index: 1;
+    color: white;
+    padding: 20px 30px;
 
-    &.snow {
-      background: #384782;
-    }
+  }
+  
+  .bg-snow {
+    background: #212b4f;
+  }
 
-    &.plain {
-      background: #0E4428;
-    }
+  .bg-plain {
+    background: #0E4428;
+  }
 
-    &.water {
-      background: #4DADA1;
-    }
+  .bg-water {
+    background: #0A0919;
+  }
 
+  .content{
+    flex: 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 30px;
+    color: white;
   }
 
 }
