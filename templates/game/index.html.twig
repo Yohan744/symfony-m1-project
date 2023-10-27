@@ -11,7 +11,7 @@
 		{{include("components/sidebar.html.twig") }}
 
 		<div class="content">
-			{% for building in buildings %}
+			{% for building in user.buildings %}
 				{{component('buildingCard', {
 					building: building
 				})}}

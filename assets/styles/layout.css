@@ -25,18 +25,25 @@
   z-index: 1;
   color: white;
   padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.layout-bg .sidebar.snow {
+.layout-bg .bg-snow {
   background: #212b4f;
 }
-.layout-bg .sidebar.plain {
+.layout-bg .bg-plain {
   background: #0E4428;
 }
-.layout-bg .sidebar.water {
+.layout-bg .bg-water {
   background: #0A0919;
 }
 .layout-bg .content {
   flex: 1;
   z-index: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 30px;
   color: white;
 }/*# sourceMappingURL=layout.css.map */

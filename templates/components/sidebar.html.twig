@@ -3,14 +3,14 @@
 
 <div class="sidebar bg-{{currentTheme}}">
 	<h1>
-		{{pseudo}}
+		{{user.email}}
 	</h1>
 	<hr>
-	{% if app.user %}
-		{% for building in app.user.buildings %}
-			<p>{{building.name}}</p>
-		{% else %}
-			<p>cant buuild</p>
-		{% endfor %}
-	{% endif %}
+	{% for building in buildings %}
+		{{ component('buildingSideItem', {
+			building: building
+		})}}
+	{% else %}
+		<p>no more build</p>
+	{% endfor %}
 </div>

@@ -4,32 +4,35 @@ namespace App\Controller;
 
 use App\Entity\Building;
 use App\Entity\Theme;
+use App\Entity\User;
 use App\FormType\ThemeType;
+use App\Repository\BuildingRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(Request $request): Response
-    {
+    public function index(
+        Request $request,
+        #[CurrentUser()] User $user,
+        BuildingRepository $buildingRepository,
+    ): Response {
+
+        $buildings = $buildingRepository->findAll();
         $session = $request->getSession();
         $environement = $session->get('environment');
-        $pseudo = $session->get('pseudo');
 
         $theme = $this->getTheme($environement);
 
-        $building = new Building();
-        $building->setName("Hotel de ville");
-        $building->setDescription("Ceci est le batiment principale de votre village. ");
-        $buildings = [$building, $building, $building];
-
         return $this->render('game/index.html.twig', [
             'theme' => $theme,
-            "pseudo" => $pseudo,
+            "user" => $user,
             "buildings" => $buildings
         ]);
     }

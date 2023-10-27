@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('buildingCard')]
-class BuildingCardComponent
+#[AsTwigComponent('buildingSideItem')]
+class BuildingSideItemComponent
 {
     public Building $building;
 }

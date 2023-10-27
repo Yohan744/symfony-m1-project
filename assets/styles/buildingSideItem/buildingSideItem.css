@@ -1,0 +1,14 @@
+.building-sideItem-container {
+  background: white;
+  padding: 10px;
+  width: 100%;
+}
+.building-sideItem-container.color-snow {
+  color: #212b4f;
+}
+.building-sideItem-container.color-plain {
+  color: #0E4428;
+}
+.building-sideItem-container.color-water {
+  color: #0A0919;
+}/*# sourceMappingURL=buildingSideItem.css.map */
