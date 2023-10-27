@@ -21,14 +21,14 @@ class Building
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'building', targetEntity: BuildingState::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'building', targetEntity: BuildingState::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $buildingStates;
 
     #[ORM\OneToMany(mappedBy: 'linkedBuilding', targetEntity: Condition::class, orphanRemoval: true)]
     private Collection $conditions;
 
     #[ORM\Column]
-    private ?int $level = null;
+    private ?int $level = 1;
 
     public function __construct()
     {
