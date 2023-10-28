@@ -2,10 +2,9 @@
 {% set pseudo = app.session.get('pseudo') %}
 
 <div class="sidebar bg-{{currentTheme}}">
-	<h1>
-		{{user.email}}
-	</h1>
-	<hr>
+
+	<!--<h1>{{ user.email }}</h1>-->
+
 	{% for building in buildings %}
 		{{ component('buildingSideItem', {
 			building: building
@@ -13,4 +12,5 @@
 	{% else %}
 		<p>no more build</p>
 	{% endfor %}
+
 </div>

@@ -1,5 +1,7 @@
 .layout-bg {
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -18,6 +20,9 @@
   }
 
   .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 20%;
     z-index: 1;
@@ -25,8 +30,6 @@
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
   }
   
   .bg-snow {
@@ -34,7 +37,7 @@
   }
 
   .bg-plain {
-    background: #0E4428;
+    background: #64766c;
   }
 
   .bg-water {

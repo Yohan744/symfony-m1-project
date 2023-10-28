@@ -1,7 +1,10 @@
 .building-sideItem-container {
-  background: yellow;
+  position: relative;
+  margin-bottom: 20px;
   padding: 10px;
   width: 100%;
+  border-radius: 5px;
+  background: white;
 }
 .building-sideItem-container.color-snow {
   color: #212b4f;
@@ -11,4 +14,9 @@
 }
 .building-sideItem-container.color-water {
   color: #0A0919;
-}/*# sourceMappingURL=buildingSideItem.css.map */
+}
+.building-sideItem-container:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=buildingSideItem.css.map */

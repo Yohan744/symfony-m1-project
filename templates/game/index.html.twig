@@ -7,7 +7,9 @@
 {% block body %}
 
 	<div class="layout-bg">
+
 		<img src="{{ asset(theme.image) }}" alt="background">
+
 		{{include("components/sidebar.html.twig") }}
 
 		<div class="content">
@@ -17,5 +19,6 @@
 				})}}
 			{% endfor %}
 		</div>
+
 	</div>
 {% endblock %}
