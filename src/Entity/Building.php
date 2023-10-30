@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BuildingRepository;
+use App\Repository\BuildingStateRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -28,7 +29,9 @@ class Building
     private Collection $conditions;
 
     #[ORM\Column]
-    private ?int $level = 1;
+    private ?int $level = 0;
+
+    public ?BuildingState $currentState;
 
     public function __construct()
     {
@@ -71,6 +74,11 @@ class Building
     public function getBuildingStates(): Collection
     {
         return $this->buildingStates;
+    }
+    public function getCurrentBuildingState(BuildingStateRepository $repository): BuildingState
+    {
+        $this->currentState = $repository->findOneByLevel($this->id, $this->level);
+        return $this->currentState;
     }
 
     public function addBuildingState(BuildingState $buildingState): static

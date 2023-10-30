@@ -21,28 +21,29 @@ class BuildingStateRepository extends ServiceEntityRepository
         parent::__construct($registry, BuildingState::class);
     }
 
-//    /**
-//     * @return BuildingState[] Returns an array of BuildingState objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return BuildingState[] Returns an array of BuildingState objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('b')
+    //            ->andWhere('b.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('b.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?BuildingState
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findOneByLevel($id, $level): ?BuildingState
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.level = :level')
+            ->setParameter('level', $level)
+            ->andWhere('b.building = :buildingId')
+            ->setParameter('buildingId', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

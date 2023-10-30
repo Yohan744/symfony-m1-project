@@ -3,7 +3,13 @@
 
 <div class="sidebar bg-{{currentTheme}}">
 
-	<!--<h1>{{ user.email }}</h1>-->
+	<h1>{{ user.email }}</h1>
+	<h2>coins :
+		{{user.coins}}
+	</h2>
+	<a href="{{ path('app_game_add_coins') }}">
+		generate coins
+	</a>
 
 	{% for building in buildings %}
 		{{ component('buildingSideItem', {

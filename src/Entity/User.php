@@ -32,7 +32,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column]
-    private ?int $xpLevel = 0;
+    private ?int $xpLevel = 1;
 
     #[ORM\Column]
     private ?int $coins = 0;
@@ -147,6 +147,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->coins = $coins;
 
         return $this;
+    }
+    public function addCoins(): ?int
+    {
+        $this->coins = $this->coins + $this->xpLevel;
+        return $this->coins;
     }
 
     /**

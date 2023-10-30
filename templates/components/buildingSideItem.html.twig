@@ -1,7 +1,8 @@
-{% set currentTheme = app.session.get('environment') %}
-<div class="building-sideItem-container color-{{currentTheme}}">
+<div style="color: black;" class="building-sideItem-container ">
 
 	<h3>{{building.name}}</h3>
-	<p>Cliquer pour construire</p>
+	<h4>Cout de construction :
+		{{building.currentState.upgradeCost}}</h4>
+	<a>Cliquer pour construire</a>
 
 </div>

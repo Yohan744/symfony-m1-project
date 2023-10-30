@@ -1,10 +1,23 @@
-{% set currentTheme = app.session.get('environment') %}
-
-<div class="building-container bg-{{currentTheme}} ">
+<div style='color:blue; height: fit-content' class="building-container ">
 	<h3>
 		{{building.name}}
 	</h3>
 	<p>
 		{{building.description}}
 	</p>
+	<br>
+	<hr>
+	<br>
+	<h3>
+		Niveau :{{building.currentState.level}}
+	</h3>
+	<h3>
+		Cout d'amelioration :{{building.currentState.upgradeCost
+}}
+	</h3>
+	<h3>
+		Recompense d'amelioration :{{building.currentState.upgradeReward
+}}
+	</h3>
+	<a>Ameliorer le batiment</a>
 </div>

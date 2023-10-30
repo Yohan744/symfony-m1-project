@@ -13,6 +13,10 @@
 		{{include("components/sidebar.html.twig") }}
 
 		<div class="content">
+			{{component('buildingCard', {
+					building: user.townhall
+				})}}
+
 			{% for building in user.buildings %}
 				{{component('buildingCard', {
 					building: building

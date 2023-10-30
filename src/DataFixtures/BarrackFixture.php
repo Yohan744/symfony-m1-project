@@ -19,12 +19,19 @@ class BarrackFixture extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    public function createBarrack(): Building {
+    public function createBarrack(): Building
+    {
 
         $barrack = new Building();
 
         $barrack->setName("Caserne");
         $barrack->setDescription("La caserne permet de former des troupes pour attaquer vos ennemis.");
+
+        $levelZero = new BuildingState(); // the level zero is the construction state
+        $levelZero->setLevel(0);
+        $levelZero->setImage("images/buildings/barrack/barrack-1.webp");
+        $levelZero->setUpgradeCost(5);
+        $levelZero->setUpgradeReward(25);
 
         $levelOne = new BuildingState();
         $levelOne->setLevel(1);
@@ -44,6 +51,7 @@ class BarrackFixture extends Fixture implements DependentFixtureInterface
         $levelThree->setUpgradeCost(40);
         $levelThree->setUpgradeReward(200);
 
+        $barrack->addBuildingState($levelZero);
         $barrack->addBuildingState($levelOne);
         $barrack->addBuildingState($levelTwo);
         $barrack->addBuildingState($levelThree);
@@ -61,7 +69,6 @@ class BarrackFixture extends Fixture implements DependentFixtureInterface
         $barrack->addCondition($conditionToLevelThree);
 
         return $barrack;
-
     }
 
     public function getDependencies()
@@ -70,5 +77,4 @@ class BarrackFixture extends Fixture implements DependentFixtureInterface
             TownHallFixture::class
         ];
     }
-
 }

@@ -30,12 +30,27 @@ class BuildingRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findByAllExecptTownhall(): array
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.name != \'Hôtel de ville\'')
+            ->getQuery()
+            ->getResult();
+    }
 
     public function findOneById($id): ?Building
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.id = :id')
             ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function findTownhall(): ?Building
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.name = \'Hôtel de ville\'')
             ->getQuery()
             ->getOneOrNullResult();
     }
