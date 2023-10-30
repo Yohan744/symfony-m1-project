@@ -7,6 +7,7 @@ use App\Entity\Theme;
 use App\Entity\User;
 use App\FormType\ThemeType;
 use App\Repository\BuildingRepository;
+use App\Repository\ThemeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +23,12 @@ class GameController extends AbstractController
         Request $request,
         #[CurrentUser()] User $user,
         BuildingRepository $buildingRepository,
+        ThemeRepository $themeRepository,
     ): Response {
 
         $buildings = $buildingRepository->findAll();
-        $session = $request->getSession();
-        $environement = $session->get('environment');
 
-        $theme = $this->getTheme($environement);
+        $theme = $themeRepository->findOneById($user->getTheme()->getId());
 
         return $this->render('game/index.html.twig', [
             'theme' => $theme,

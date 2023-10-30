@@ -22,6 +22,9 @@ class Theme
     #[ORM\Column(length: 255)]
     private ?string $secondaryColor = "#FFFFFF";
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name = "defaultName";
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Theme
     public function setSecondaryColor(string $secondaryColor): static
     {
         $this->secondaryColor = $secondaryColor;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
 
         return $this;
     }

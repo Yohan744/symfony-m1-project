@@ -14,12 +14,12 @@ class TownHallFixture extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $manager->persist($this->createTownHall());
-        $manager->flush();
         $this->addReference(self::TOWNHALL_REFRENCE, $this->createTownHall());
+        $manager->flush();
     }
 
-    public function createTownHall(): Building {
+    public function createTownHall(): Building
+    {
 
         $townHall = new Building();
 
@@ -49,7 +49,5 @@ class TownHallFixture extends Fixture
         $townHall->addBuildingState($levelThree);
 
         return $townHall;
-
     }
-
 }

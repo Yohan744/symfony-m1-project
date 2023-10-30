@@ -17,12 +17,13 @@ class ThemeFixture extends fixture
         $manager->flush();
     }
 
-    public function createTheme(string $url, string $primary, string $secondary): Theme {
+    public function createTheme(string $url, string $primary, string $secondary): Theme
+    {
         $theme = new Theme();
+        $theme->setName($url);
         $theme->setImage("images/themes/" . $url . ".jpg");
         $theme->setPrimaryColor($primary);
         $theme->setSecondaryColor($secondary);
         return $theme;
     }
-
 }

@@ -2,8 +2,16 @@
 
 {% block body %}
 
+
+	<a href="{{path('app_game')}}">
+		Go to game</a>
+	<br>
+
+	<a href="{{path('app_login')}}">
+		Login</a><br>
+	<a href="{{path('app_register')}}">
+		s'inscrire</a>
+
 	<h1>intro</h1>
 
-	{{form(form)}}
-
-{% endblock %}
+	{{form(form)}}{% endblock %}
