@@ -1,17 +1,32 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Clash{% endblock %}
+
 {% block body %}
 
+	<main id="intro">
 
-	<a href="{{path('app_game')}}">
-		Go to game</a>
-	<br>
+		<img src="{{ asset('images/themes/plain.jpg') }}" class="background" alt="background image of the game">
 
-	<a href="{{path('app_login')}}">
-		Login</a><br>
-	<a href="{{path('app_register')}}">
-		s'inscrire</a>
+		<h1>Clash</h1>
 
-	<h1>intro</h1>
-	{# {{form(form)}} #}
+		<div class="wrapper">
+
+			<a href="{{path('app_game')}}" class="global-button">
+				<div>
+					<p>Go to game</p>
+				</div>
+			</a>
+
+			<div class="button-wrapper">
+
+				<a href="{{path('app_login')}}">Sign in</a>
+				<a href="{{path('app_register')}}">Sign up</a>
+
+			</div>
+
+		</div>
+
+	</main>
+
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Building;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,6 +39,10 @@ class BuildingRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    /**
+     * @throws NonUniqueResultException
+     */
     public function findOneById($id): ?Building
     {
         return $this->createQueryBuilder('b')
@@ -47,6 +52,9 @@ class BuildingRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
+    /**
+     * @throws NonUniqueResultException
+     */
     public function findTownhall(): ?Building
     {
         return $this->createQueryBuilder('b')

@@ -1,0 +1,73 @@
+#intro {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#intro .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  user-focus: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: -1;
+}
+#intro h1 {
+  position: relative;
+  margin-bottom: 50px;
+  font-family: "siller", sans-serif;
+  font-size: 210px;
+  font-weight: normal;
+  color: white;
+}
+@media (max-width: 1500px) {
+  #intro h1 {
+    font-size: 170px;
+  }
+}
+#intro .wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#intro .wrapper .button-wrapper {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#intro .wrapper .button-wrapper a {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-size: 23px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #c5c5c5;
+  transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #c5c5c5;
+}
+#intro .wrapper .button-wrapper a:first-child {
+  margin-right: 20px;
+}
+#intro .wrapper .button-wrapper a:hover {
+  text-decoration-color: rgba(197, 197, 197, 0);
+}
+@media screen and (max-width: 1500px) {
+  #intro .wrapper .button-wrapper a {
+    font-size: 18px;
+  }
+}
+
+/*# sourceMappingURL=intro.css.map */

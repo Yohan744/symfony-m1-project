@@ -1,12 +1,68 @@
-@import url("layout.css");
+@import url("intro.css");
+@import url("game.css");
 @import url("buildingCard/buildingCard.css");
 @import url("buildingSideItem/buildingSideItem.css");
+@font-face {
+  font-family: "josefin";
+  src: url("./../fonts/josefin/josefin.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "siller";
+  src: url("./../fonts/siller/siller.otf");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  scroll-behavior: auto;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+html img, body img {
+  -webkit-user-drag: none;
+  user-focus: none;
+  user-select: none;
+}
+
+.global-button {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  text-decoration: none;
+}
+.global-button div {
+  position: relative;
+  padding: 16px;
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.global-button div p {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-size: 30px;
+  font-variation-settings: "wght" 375, "wdth" 100;
+  color: black;
+}
+@media (max-width: 1500px) {
+  .global-button div p {
+    font-size: 20px;
+  }
+}
+.global-button div:hover {
+  background-color: #d3d3d3;
 }
 
 /*# sourceMappingURL=app.css.map */
