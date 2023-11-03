@@ -75,10 +75,11 @@ class Building
     {
         return $this->buildingStates;
     }
-    public function getCurrentBuildingState(BuildingStateRepository $repository): BuildingState
+    public function getCurrentBuildingState(BuildingStateRepository $repository): static
     {
+
         $this->currentState = $repository->findOneByLevel($this->id, $this->level);
-        return $this->currentState;
+        return $this;
     }
 
     public function addBuildingState(BuildingState $buildingState): static

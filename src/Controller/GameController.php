@@ -31,10 +31,12 @@ class GameController extends AbstractController
 
         $buildings = $buildingRepository->findByAllExecptTownhall();
 
-        // $userBuilding = $user->getBuildings()->map(($item){
-        //     dump($item);
-        // });
-        // dd($userBuilding);
+        $userBuildings = $user->getBuildings()->toArray();
+        foreach ($userBuildings as $a => $userBuilding) {
+            $buildings = array_filter($buildings, function ($b) use ($userBuilding) {
+                return $userBuilding->getId() != $b->getId();
+            });
+        }
 
         $theme = $themeRepository->findOneById($user->getTheme()->getId());
 
@@ -43,11 +45,15 @@ class GameController extends AbstractController
         foreach ($buildings as &$building) {
             $building->getCurrentBuildingState($buildingStateRepository);
         }
+        foreach ($userBuildings as &$building) {
+            $building->getCurrentBuildingState($buildingStateRepository);
+        }
 
         return $this->render('game/index.html.twig', [
             'theme' => $theme,
             "user" => $user,
-            "buildings" => $buildings
+            "buildings" => $buildings,
+            "userBuildings" => $userBuildings
         ]);
     }
 
@@ -77,6 +83,29 @@ class GameController extends AbstractController
         if ($user->getCoins() >= $building->currentState->getUpgradeCost()) {
             $building->increaseLevel();
             $user->buyBuilding($building);
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
+
+
+        return $this->redirectToRoute('app_game');
+    }
+    #[Route('/upgrade/{buildId}', name: 'app_game_upgrade', methods: ['GET'])]
+    public function upgrade(
+        string $buildId,
+        #[CurrentUser()] User $user,
+        EntityManagerInterface $entityManager,
+        BuildingRepository $buildingRepo,
+        BuildingStateRepository $buildingStateRepository,
+    ) {
+        // if($user->coins > $building->currentS)
+        $building = $buildingRepo->findOneById($buildId);
+        $building->getCurrentBuildingState($buildingStateRepository);
+
+        if ($user->getCoins() >= $building->currentState->getUpgradeCost()) {
+            $building->increaseLevel();
+            $user->setCoins($user->getCoins() - $building->currentState->getUpgradeCost());
+            $entityManager->persist($building);
             $entityManager->persist($user);
             $entityManager->flush();
         }
