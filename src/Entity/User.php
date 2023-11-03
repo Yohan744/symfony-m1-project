@@ -153,7 +153,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
     public function addCoins(): ?int
     {
-        $this->coins = $this->coins + $this->xpLevel * 1000;
+        $this->coins = $this->coins + $this->xpLevel;
         return $this->coins;
     }
 
