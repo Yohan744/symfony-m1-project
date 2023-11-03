@@ -144,4 +144,9 @@ class Building
 
         return $this;
     }
+    public function increaseLevel()
+    {
+        $this->level = $this->level + 1;
+        return $this;
+    }
 }

@@ -30,6 +30,12 @@ class GameController extends AbstractController
     ): Response {
 
         $buildings = $buildingRepository->findByAllExecptTownhall();
+
+        // $userBuilding = $user->getBuildings()->map(($item){
+        //     dump($item);
+        // });
+        // dd($userBuilding);
+
         $theme = $themeRepository->findOneById($user->getTheme()->getId());
 
         $user->getTownHall()->getCurrentBuildingState($buildingStateRepository);
@@ -53,6 +59,28 @@ class GameController extends AbstractController
         $user->addCoins();
         $entityManager->persist($user);
         $entityManager->flush();
+
+        return $this->redirectToRoute('app_game');
+    }
+    #[Route('/build/{buildId}', name: 'app_game_build', methods: ['GET'])]
+    public function build(
+        string $buildId,
+        #[CurrentUser()] User $user,
+        EntityManagerInterface $entityManager,
+        BuildingRepository $buildingRepo,
+        BuildingStateRepository $buildingStateRepository,
+    ) {
+        // if($user->coins > $building->currentS)
+        $building = $buildingRepo->findOneById($buildId);
+        $building->getCurrentBuildingState($buildingStateRepository);
+
+        if ($user->getCoins() >= $building->currentState->getUpgradeCost()) {
+            $building->increaseLevel();
+            $user->buyBuilding($building);
+            $entityManager->persist($user);
+            $entityManager->flush();
+        }
+
 
         return $this->redirectToRoute('app_game');
     }

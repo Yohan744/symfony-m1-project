@@ -3,6 +3,6 @@
 	<h3>{{building.name}}</h3>
 	<h4>Cout de construction :
 		{{building.currentState.upgradeCost}}</h4>
-	<a>Cliquer pour construire</a>
+	<a href='{{path('app_game_build', { 'buildId': building.id })}}'>Cliquer pour construire</a>
 
 </div>

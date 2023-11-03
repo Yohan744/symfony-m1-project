@@ -201,4 +201,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function buyBuilding(Building $building): static
+    {
+        $this->addBuilding($building);
+        $this->setCoins($this->coins - $building->currentState->getUpgradeCost());
+        return $this;
+    }
 }
