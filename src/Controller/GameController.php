@@ -81,8 +81,8 @@ class GameController extends AbstractController
         $building->getCurrentBuildingState($buildingStateRepository);
 
         if ($user->getCoins() >= $building->currentState->getUpgradeCost()) {
-            $building->increaseLevel();
             $user->buyBuilding($building);
+            $building->increaseLevel();
             $entityManager->persist($user);
             $entityManager->flush();
         }
@@ -103,6 +103,7 @@ class GameController extends AbstractController
         $building->getCurrentBuildingState($buildingStateRepository);
 
         if ($user->getCoins() >= $building->currentState->getUpgradeCost()) {
+            $user->gainXpPoints($building->currentState->getUpgradeReward());
             $building->increaseLevel();
             $user->setCoins($user->getCoins() - $building->currentState->getUpgradeCost());
             $entityManager->persist($building);
