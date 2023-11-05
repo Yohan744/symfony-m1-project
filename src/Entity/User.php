@@ -35,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $xpLevel = 1;
 
     #[ORM\Column]
+    private ?int $xpPoints = 0;
+
+    #[ORM\Column]
     private ?int $coins = 0;
 
     #[ORM\ManyToMany(targetEntity: Building::class)]
@@ -198,6 +201,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTheme(?Theme $theme): static
     {
         $this->theme = $theme;
+
+        return $this;
+    }
+    public function buyBuilding(Building $building): static
+    {
+        $this->addBuilding($building);
+        $this->setCoins($this->coins - $building->currentState->getUpgradeCost());
+        return $this;
+    }
+
+    public function getXpPoints(): ?int
+    {
+        return $this->xpPoints;
+    }
+
+    public function setXpPoints(int $xpPoints): static
+    {
+        $this->xpPoints = $xpPoints;
+
+        return $this;
+    }
+
+    public function gainXpPoints(int $pointsToAdd): static
+    {
+        if ($this->xpPoints + $pointsToAdd >=  $this->xpLevel * 100) {
+            $temp = $this->xpPoints + $pointsToAdd;
+            $this->xpPoints = $temp - $this->xpLevel * 100;
+            $this->xpLevel++;
+        } else {
+            $this->xpPoints = $this->xpPoints + $pointsToAdd;
+        }
 
         return $this;
     }

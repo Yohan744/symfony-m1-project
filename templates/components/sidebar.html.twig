@@ -1,11 +1,16 @@
-{% set currentTheme = app.session.get('environment') %}
-{% set pseudo = app.session.get('pseudo') %}
-
-<div class="sidebar bg-{{currentTheme}}">
+<div class="sidebar">
 
 	<h1>{{ user.email }}</h1>
 	<h2>coins :
 		{{user.coins}}
+	</h2>
+	<h2>xp level :
+		{{user.xpLevel}}
+	</h2>
+	<h2>xp pooints :
+		{{user.xpPoints}}
+		/
+		{{user.xpLevel * 100}}
 	</h2>
 	<a href="{{ path('app_game_add_coins') }}">
 		generate coins
