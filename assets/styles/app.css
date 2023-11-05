@@ -2,6 +2,7 @@
 @import url("game.css");
 @import url("buildingCard/buildingCard.css");
 @import url("buildingSideItem/buildingSideItem.css");
+@import url("forms.css");
 @font-face {
   font-family: "josefin";
   src: url("./../fonts/josefin/josefin.ttf");

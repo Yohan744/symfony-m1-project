@@ -1,0 +1,132 @@
+#form {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#form .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  user-focus: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: -1;
+}
+#form h1 {
+  position: relative;
+  margin-bottom: 30px;
+  font-family: "josefin", sans-serif;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+}
+#form .global-wrapper {
+  position: relative;
+  padding: 40px 30px 20px;
+  height: fit-content;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: white;
+}
+#form .global-wrapper .form {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+#form .global-wrapper .form div {
+  position: relative;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+#form .global-wrapper .form div label {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-size: 25px;
+  font-variation-settings: "wght" 400;
+  color: #1e1e1e;
+}
+#form .global-wrapper .form div input, #form .global-wrapper .form div select {
+  position: relative;
+  height: 47px;
+  width: 100%;
+  margin-top: 8px;
+  background: #f4f4f4;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-family: "josefin", sans-serif;
+  font-size: 18px;
+  text-indent: 15px;
+  color: #303030;
+}
+#form .global-wrapper .form div input::placeholder, #form .global-wrapper .form div select::placeholder {
+  color: #969696;
+  transform: translateX(0);
+  transition: transform 1.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+#form .global-wrapper .form div input:focus::placeholder, #form .global-wrapper .form div select:focus::placeholder {
+  transform: translateX(-100%);
+}
+#form .global-wrapper .form div:last-child {
+  margin-bottom: 0;
+}
+#form .global-wrapper .form button {
+  position: relative;
+  padding: 17px 25px;
+  display: flex;
+  margin: 0 auto;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #303030;
+  font-family: "josefin", sans-serif;
+  font-size: 20px;
+  color: white;
+}
+#form .text {
+  position: relative;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#form .text p {
+  position: relative;
+  margin-right: 5px;
+  font-family: "josefin", sans-serif;
+  font-size: 18px;
+  color: #c5c5c5;
+}
+#form .text a {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-size: 18px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #c5c5c5;
+  transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  color: #c5c5c5;
+}
+#form .text a:hover {
+  text-decoration-color: rgba(197, 197, 197, 0);
+}
+
+/*# sourceMappingURL=forms.css.map */

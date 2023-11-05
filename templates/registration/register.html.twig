@@ -4,16 +4,42 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Register</h1>
 
-	{{ form_errors(registrationForm) }}
+    <main id="form">
 
-	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.email) }}
-	{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-	{{ form_row(registrationForm.theme) }}
-	<button type="submit" class="btn">Register</button>
-	{{ form_end(registrationForm) }}
+        <h1>Register</h1>
+
+        <img src="{{ asset('images/themes/plain.jpg') }}" class="background" alt="background image of the game">
+
+        <div class="global-wrapper">
+
+            {{ form_start(registrationForm, {
+                'attr': {'class': 'form'}
+            }) }}
+            {{ form_row(registrationForm.email, {
+                label: 'Email',
+                'attr': {'placeholder': 'example@gmail.com'}
+            }) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password',
+                'attr': {'placeholder': 'Must contain 6 characters'}
+            }) }}
+            {{ form_row(registrationForm.theme) }}
+            <button type="submit" class="btn">Register</button>
+
+            {{ form_end(registrationForm) }}
+
+            {{ form_errors(registrationForm) }}
+
+        </div>
+
+        <div class="text">
+
+            <p>No account yet ?</p>
+            <a href="{{path('app_login')}}">Sign in</a>
+
+        </div>
+
+    </main>
+
 {% endblock %}
