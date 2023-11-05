@@ -30,6 +30,35 @@
     color: white;
   }
 
+  .logged {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "josefin", sans-serif;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+
+    a {
+      position: relative;
+      margin-left: 5px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c5c5c5;
+      transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      color: white;
+
+      &:hover {
+        text-decoration-color: rgba(197, 197, 197, 0);
+      }
+
+    }
+
+  }
+
   .global-wrapper {
     position: relative;
     padding: 40px 30px 20px;
@@ -42,7 +71,7 @@
     border-radius: 10px;
     background: rgb(255, 255, 255);
 
-    .form {
+    form {
       position: relative;
       height: 100%;
       width: 100%;
@@ -113,6 +142,15 @@
         font-family: "josefin", sans-serif;
         font-size: 20px;
         color: white;
+      }
+
+      .alert {
+        position: relative;
+        margin-top: 25px;
+        font-family: "josefin", sans-serif;
+        text-align: center;
+        font-size: 17px;
+        color: red;
       }
 
     }

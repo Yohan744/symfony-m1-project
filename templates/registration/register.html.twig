@@ -7,24 +7,26 @@
 
     <main id="form">
 
-        <h1>Register</h1>
-
         <img src="{{ asset('images/themes/plain.jpg') }}" class="background" alt="background image of the game">
+
+        <h1>Sign up</h1>
 
         <div class="global-wrapper">
 
-            {{ form_start(registrationForm, {
-                'attr': {'class': 'form'}
-            }) }}
+            {{ form_start(registrationForm) }}
+
             {{ form_row(registrationForm.email, {
                 label: 'Email',
                 'attr': {'placeholder': 'example@gmail.com'}
             }) }}
+
             {{ form_row(registrationForm.plainPassword, {
                 label: 'Password',
                 'attr': {'placeholder': 'Must contain 6 characters'}
             }) }}
+
             {{ form_row(registrationForm.theme) }}
+
             <button type="submit" class="btn">Register</button>
 
             {{ form_end(registrationForm) }}
@@ -35,7 +37,7 @@
 
         <div class="text">
 
-            <p>No account yet ?</p>
+            <p>Already have an account ?</p>
             <a href="{{path('app_login')}}">Sign in</a>
 
         </div>

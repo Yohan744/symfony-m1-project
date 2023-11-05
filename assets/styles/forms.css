@@ -28,6 +28,30 @@
   text-align: center;
   color: white;
 }
+#form .logged {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "josefin", sans-serif;
+  font-size: 17px;
+  text-align: center;
+  color: white;
+}
+#form .logged a {
+  position: relative;
+  margin-left: 5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #c5c5c5;
+  transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  color: white;
+}
+#form .logged a:hover {
+  text-decoration-color: rgba(197, 197, 197, 0);
+}
 #form .global-wrapper {
   position: relative;
   padding: 40px 30px 20px;
@@ -40,13 +64,13 @@
   border-radius: 10px;
   background: white;
 }
-#form .global-wrapper .form {
+#form .global-wrapper form {
   position: relative;
   height: 100%;
   width: 100%;
   overflow: hidden;
 }
-#form .global-wrapper .form div {
+#form .global-wrapper form div {
   position: relative;
   margin-bottom: 25px;
   display: flex;
@@ -54,14 +78,14 @@
   justify-content: center;
   align-items: start;
 }
-#form .global-wrapper .form div label {
+#form .global-wrapper form div label {
   position: relative;
   font-family: "josefin", sans-serif;
   font-size: 25px;
   font-variation-settings: "wght" 400;
   color: #1e1e1e;
 }
-#form .global-wrapper .form div input, #form .global-wrapper .form div select {
+#form .global-wrapper form div input, #form .global-wrapper form div select {
   position: relative;
   height: 47px;
   width: 100%;
@@ -75,18 +99,18 @@
   text-indent: 15px;
   color: #303030;
 }
-#form .global-wrapper .form div input::placeholder, #form .global-wrapper .form div select::placeholder {
+#form .global-wrapper form div input::placeholder, #form .global-wrapper form div select::placeholder {
   color: #969696;
   transform: translateX(0);
   transition: transform 1.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
-#form .global-wrapper .form div input:focus::placeholder, #form .global-wrapper .form div select:focus::placeholder {
+#form .global-wrapper form div input:focus::placeholder, #form .global-wrapper form div select:focus::placeholder {
   transform: translateX(-100%);
 }
-#form .global-wrapper .form div:last-child {
+#form .global-wrapper form div:last-child {
   margin-bottom: 0;
 }
-#form .global-wrapper .form button {
+#form .global-wrapper form button {
   position: relative;
   padding: 17px 25px;
   display: flex;
@@ -99,6 +123,14 @@
   font-family: "josefin", sans-serif;
   font-size: 20px;
   color: white;
+}
+#form .global-wrapper form .alert {
+  position: relative;
+  margin-top: 25px;
+  font-family: "josefin", sans-serif;
+  text-align: center;
+  font-size: 17px;
+  color: red;
 }
 #form .text {
   position: relative;
