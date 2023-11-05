@@ -45,7 +45,7 @@
   margin-left: 5px;
   text-decoration: underline;
   text-underline-offset: 3px;
-  text-decoration-color: #c5c5c5;
+  text-decoration-color: white;
   transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
   color: white;
 }
@@ -158,7 +158,8 @@
   color: #c5c5c5;
 }
 #form .text a:hover {
-  text-decoration-color: rgba(197, 197, 197, 0);
+  text-underline-offset: 3px;
+  text-decoration-color: #c5c5c500;
 }
 
 /*# sourceMappingURL=forms.css.map */

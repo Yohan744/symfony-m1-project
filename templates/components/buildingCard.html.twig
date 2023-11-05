@@ -1,33 +1,27 @@
-<div style='color:blue; height: fit-content' class="building-container ">
-	<h3>
-		{{building.name}}
-	</h3>
-	<p>
-		{{building.description}}
-	</p>
-	<p>
-		current level :
-		{{building.level}}
-	</p>
+<div class="card">
+
+	<h3>{{building.name}}</h3>
+
+	<img src="{{ asset(building.currentState.image) }}">
+
+	<p>{{building.description}}</p>
+
+	<p>current level : {{building.level}}</p>
+
 	{% if building.currentState %}
-		<br>
-		<hr>
-		<br>
-		<h3>
-			next level :{{building.currentState.level + 1 }}
-		</h3>
-		<h3>
-			Cout d'amelioration :{{building.currentState.upgradeCost
-}}
-		</h3>
-		<h3>
-			Recompense d'amelioration :{{building.currentState.upgradeReward
-}}
-		</h3>
+
+		<h3>next level :{{building.currentState.level + 1 }}</h3>
+
+		<h3>Cout d'amelioration :{{building.currentState.upgradeCost }}</h3>
+
+		<h3>Recompense d'amelioration :{{building.currentState.upgradeReward }}</h3>
+
 		<a href="{{path('app_game_upgrade', {buildId: building.id})}}">Ameliorer le batiment</a>
+
 	{% else %}
-		<h3>
-			max level reach
-		</h3>
+
+		<h3>max level reach</h3>
+
 	{% endif %}
+
 </div>

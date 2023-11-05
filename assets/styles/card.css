@@ -1,0 +1,10 @@
+.card {
+  position: relative;
+  padding: 10px;
+  height: fit-content;
+  width: 300px;
+  margin-right: 40px;
+  background: white;
+}
+
+/*# sourceMappingURL=card.css.map */

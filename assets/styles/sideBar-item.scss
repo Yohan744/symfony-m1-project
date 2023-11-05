@@ -1,0 +1,85 @@
+.sideBar-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 15px 20px 15px 15px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #303030;
+
+  .left-part {
+    position: relative;
+    padding: 10px 5px 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .name {
+      position: relative;
+      font-family: "josefin", sans-serif;
+      font-weight: 500;
+      font-size: 23px;
+      color: white;
+    }
+
+    .cost {
+      position: relative;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      font-family: "josefin", sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: white;
+
+      img {
+        position: relative;
+        margin-left: 7px;
+        height: 15px;
+        width: auto;
+      }
+
+    }
+
+    a {
+      position: relative;
+      font-family: "josefin", sans-serif;
+      font-size: 15px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: white;
+      transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      color: white;
+
+      &:hover {
+        text-underline-offset: 3px;
+        text-decoration-color: #ffffff00;
+      }
+
+    }
+
+  }
+
+  .right-part {
+    position: relative;
+
+    img {
+      height: 100px;
+      width: auto;
+    }
+
+  }
+
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}

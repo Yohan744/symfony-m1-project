@@ -1,27 +1,28 @@
 <div class="sidebar">
 
-	<h1>{{ user.email }}</h1>
-	<h2>coins :
-		{{user.coins}}
-	</h2>
-	<h2>xp level :
-		{{user.xpLevel}}
-	</h2>
-	<h2>xp pooints :
-		{{user.xpPoints}}
-		/
-		{{user.xpLevel * 100}}
-	</h2>
-	<a href="{{ path('app_game_add_coins') }}">
-		generate coins
-	</a>
+	<div class="top-part">
 
-	{% for building in buildings %}
-		{{ component('buildingSideItem', {
-			building: building
-		})}}
-	{% else %}
-		<p>no more build</p>
-	{% endfor %}
+		<h2 class="info"><span>Coins :</span>{{user.coins}}</h2>
+
+		<h2 class="info"><span>Level :</span>{{user.xpLevel}}</h2>
+
+		<h2 class="info"><span>Xp :</span>{{user.xpPoints}} / {{user.xpLevel * 100}}</h2>
+
+		<div class="separator"></div>
+
+		{% for building in buildings %}
+			{{ component('sidebar-item', {
+				building: building
+			})}}
+		{% else %}
+			<p class="no-building">No more buildings available</p>
+		{% endfor %}
+
+	</div>
+
+	<div class="bottom-part">
+		<h5 class="email">Logged as {{ user.email }}</h5>
+		<a href="/">Back to home</a>
+	</div>
 
 </div>

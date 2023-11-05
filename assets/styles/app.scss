@@ -18,6 +18,12 @@
   box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  &::selection {
+    background: white;
+    color: #303030;
+  }
+
 }
 
 html, body {
@@ -72,6 +78,6 @@ html, body {
 
 @import url("intro.css");
 @import url("game.css");
-@import url("buildingCard/buildingCard.css");
-@import url("buildingSideItem/buildingSideItem.css");
+@import url("sideBar-item.css");
+@import url("card.css");
 @import url('forms.css');

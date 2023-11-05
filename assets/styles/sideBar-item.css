@@ -1,0 +1,72 @@
+.sideBar-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 15px 20px 15px 15px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #303030;
+}
+.sideBar-item .left-part {
+  position: relative;
+  padding: 10px 5px 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.sideBar-item .left-part .name {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-weight: 500;
+  font-size: 23px;
+  color: white;
+}
+.sideBar-item .left-part .cost {
+  position: relative;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "josefin", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: white;
+}
+.sideBar-item .left-part .cost img {
+  position: relative;
+  margin-left: 7px;
+  height: 15px;
+  width: auto;
+}
+.sideBar-item .left-part a {
+  position: relative;
+  font-family: "josefin", sans-serif;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: white;
+  transition: text-decoration-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  color: white;
+}
+.sideBar-item .left-part a:hover {
+  text-underline-offset: 3px;
+  text-decoration-color: #ffffff00;
+}
+.sideBar-item .right-part {
+  position: relative;
+}
+.sideBar-item .right-part img {
+  height: 100px;
+  width: auto;
+}
+.sideBar-item:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=sideBar-item.css.map */

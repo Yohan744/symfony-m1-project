@@ -6,13 +6,14 @@
 
 {% block body %}
 
-	<div class="layout-bg">
+	<main id="game">
 
-		<img src="{{ asset(theme.image) }}" alt="background">
+		<img src="{{ asset(theme.image) }}" alt="background" class="theme">
 
 		{{include("components/sidebar.html.twig") }}
 
 		<div class="content">
+
 			{{component('buildingCard', {
 					building: user.townhall
 				})}}
@@ -22,7 +23,12 @@
 					building: building
 				})}}
 			{% endfor %}
+
+			<a href="{{ path('app_game_add_coins') }}" class="coins">
+				<img src="{{ asset('images/game/coin.png') }}" alt="coins">
+			</a>
+
 		</div>
 
-	</div>
+	</main>
 {% endblock %}
