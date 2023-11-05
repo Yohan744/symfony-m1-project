@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
-{% endblock %}
+{% block title %}Sign up{% endblock %}
 
 {% block body %}
 
@@ -22,7 +21,7 @@
 
             {{ form_row(registrationForm.plainPassword, {
                 label: 'Password',
-                'attr': {'placeholder': 'Must contain 6 characters'}
+                'attr': {'placeholder': 'Password'}
             }) }}
 
             {{ form_row(registrationForm.theme) }}

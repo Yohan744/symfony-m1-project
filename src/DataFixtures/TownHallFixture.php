@@ -23,8 +23,8 @@ class TownHallFixture extends Fixture
 
         $townHall = new Building();
 
-        $townHall->setName("Hôtel de ville");
-        $townHall->setDescription("L'hôtel de ville est le coeur de votre village. Son amélioration permet de débloquer des bâtiments");
+        $townHall->setName("Town Hall");
+        $townHall->setDescription("The town hall is the heart of your village. Upgrading it unlocks new buildings and upgrades.");
 
         $levelOne = new BuildingState();
         $levelOne->setLevel(1);

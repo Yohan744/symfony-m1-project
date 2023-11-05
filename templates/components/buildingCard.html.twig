@@ -1,27 +1,35 @@
 <div class="card">
 
-	<h3>{{building.name}}</h3>
+    {% if building.currentState and building.currentState.image %}
+        <img src="{{ asset(building.currentState.image) }}" alt="image">
+    {% endif %}
 
-	<img src="{{ asset(building.currentState.image) }}">
+    <div class="wrapper">
 
-	<p>{{building.description}}</p>
+        <h3 class="name">{{ building.name }} level {{ building.level}}</h3>
 
-	<p>current level : {{building.level}}</p>
+        <p class="description">{{ building.description }}</p>
 
-	{% if building.currentState %}
+        {% if building.currentState %}
 
-		<h3>next level :{{building.currentState.level + 1 }}</h3>
+            <div class="upgradeWrapper">
 
-		<h3>Cout d'amelioration :{{building.currentState.upgradeCost }}</h3>
+                <h4 class="cost">Cost : {{ building.currentState.upgradeCost }}
+                    <img src="{{ asset('images/game/coin.png') }}" alt="coins">
+                </h4>
 
-		<h3>Recompense d'amelioration :{{building.currentState.upgradeReward }}</h3>
+                <h3 class="xp">Xp :{{ building.currentState.upgradeReward }}</h3>
 
-		<a href="{{path('app_game_upgrade', {buildId: building.id})}}">Ameliorer le batiment</a>
+                <a href="{{ path('app_game_upgrade', {buildId: building.id}) }}">Upgrade</a>
 
-	{% else %}
+            </div>
 
-		<h3>max level reach</h3>
+        {% else %}
 
-	{% endif %}
+            <h3>max level reach</h3>
+
+        {% endif %}
+
+    </div>
 
 </div>

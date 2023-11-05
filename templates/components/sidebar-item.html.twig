@@ -1,18 +1,24 @@
 <div class="sideBar-item">
 
-	<div class="left-part">
+    <div class="left-part">
 
-		<h3 class="name">{{building.name}}</h3>
+        <h3 class="name">{{ building.name }}</h3>
 
-		<div>
-			<h4 class="cost">Cost : {{building.currentState.upgradeCost}} <img src="{{ asset('images/game/coin.png') }}" alt="coins"></h4>
-			<a href='{{path('app_game_build', { 'buildId': building.id })}}'>Click to build</a>
-		</div>
+        {% if building.currentState and building.currentState.upgradeCost %}
+            <div>
+                <h4 class="cost">Cost : {{ building.currentState.upgradeCost }}
+                    <img src="{{ asset('images/game/coin.png') }}" alt="coins">
+                </h4>
+                <a href='{{ path('app_game_build', { 'buildId': building.id }) }}'>Click to build</a>
+            </div>
+        {% endif %}
 
-	</div>
+    </div>
 
-	<div class="right-part">
-		<img src="{{ asset(building.currentState.image) }}" alt="image">
-	</div>
+    {% if building.currentState and building.currentState.image %}
+        <div class="right-part">
+            <img src="{{ asset(building.currentState.image) }}" alt="image">
+        </div>
+    {% endif %}
 
 </div>

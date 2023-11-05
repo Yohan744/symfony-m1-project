@@ -24,30 +24,30 @@ class BarrackFixture extends Fixture implements DependentFixtureInterface
 
         $barrack = new Building();
 
-        $barrack->setName("Caserne");
-        $barrack->setDescription("La caserne permet de former des troupes pour attaquer vos ennemis.");
+        $barrack->setName("Barrack");
+        $barrack->setDescription("The barracks allow you to train troops to attack your enemies.");
 
         $levelZero = new BuildingState(); // the level zero is the construction state
         $levelZero->setLevel(0);
-        $levelZero->setImage("images/buildings/barrack/barrack-1.webp");
+        $levelZero->setImage("images/buildings/barrack/barrack-1.png");
         $levelZero->setUpgradeCost(5);
         $levelZero->setUpgradeReward(25);
 
         $levelOne = new BuildingState();
         $levelOne->setLevel(1);
-        $levelOne->setImage("images/buildings/barrack/barrack-1.webp");
+        $levelOne->setImage("images/buildings/barrack/barrack-1.png");
         $levelOne->setUpgradeCost(10);
         $levelOne->setUpgradeReward(50);
 
         $levelTwo = new BuildingState();
         $levelTwo->setLevel(2);
-        $levelTwo->setImage("images/buildings/barrack/barrack-2.webp");
+        $levelTwo->setImage("images/buildings/barrack/barrack-2.png");
         $levelTwo->setUpgradeCost(20);
         $levelTwo->setUpgradeReward(100);
 
         $levelThree = new BuildingState();
         $levelThree->setLevel(3);
-        $levelThree->setImage("images/buildings/barrack/barrack-3.webp");
+        $levelThree->setImage("images/buildings/barrack/barrack-3.png");
         $levelThree->setUpgradeCost(40);
         $levelThree->setUpgradeReward(200);
 
